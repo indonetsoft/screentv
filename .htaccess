@@ -56,3 +56,9 @@ AddEncoding gzip .svgz
 		Header set Access-Control-Allow-Origin "*"
 	</FilesMatch>
 </IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch ".(jpg|jpeg|png|gif|mp4)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
