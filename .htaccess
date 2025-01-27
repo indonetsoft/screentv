@@ -2,13 +2,15 @@
 	RewriteEngine On
 	RewriteBase /
 
-RewriteCond %{HTTP_HOST} ^screentv.indonetsoft.com$ [NC,OR]
-RewriteCond %{HTTP_HOST} ^screentv1.indonetsoft.com$ [NC]
-RewriteRule ^ /not-allowed.html [L,QSA]
-#RewriteCond %{HTTP_HOST} ^([a-z0-9-]+).indonetsoft.com$ [NC]
-#RewriteRule ^favicon.ico$ /upload/%1-favicon.ico [L,QSA]
-#RewriteCond %{HTTP_HOST} ^([a-z0-9-]+).indonetsoft.com$ [NC]
-#RewriteRule ^logo.png$ /upload/%1-logo.png [L,QSA]
+    RewriteCond %{HTTP_HOST} ^screentv.indonetsoft.com$ [NC,OR]
+    RewriteCond %{HTTP_HOST} ^screentv1.indonetsoft.com$ [NC]
+	RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ /not-allowed.html [L,QSA]
+
+    #RewriteCond %{HTTP_HOST} ^([a-z0-9-]+).indonetsoft.com$ [NC]
+    #RewriteRule ^favicon.ico$ /upload/%1-favicon.ico [L,QSA]
+    #RewriteCond %{HTTP_HOST} ^([a-z0-9-]+).indonetsoft.com$ [NC]
+    #RewriteRule ^logo.png$ /upload/%1-logo.png [L,QSA]
 	RewriteRule ^(login/?)$ index.php?/users/user/login [L,QSA]
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
